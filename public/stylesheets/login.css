@@ -1,0 +1,191 @@
+/* Login Form Css */
+
+/* Fonts */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,800");
+@import url("https://fonts.googleapis.com/css?family=Paytone+One");
+
+html {
+    box-sizing: border-box;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+  /* Common styles */
+  a {
+    text-decoration: none;
+    /* color: #007ace; */
+  }
+  
+  h1,
+  p {
+    text-align: center;
+    margin: 0.938rem 0;
+  }
+  
+  body {
+    color: #3e4e57;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    /* background: linear-gradient(to bottom, #00044c 0%, #5c6ac4 100%) no-repeat
+      center center; */
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+  
+  .container {
+    margin: 0 0.938rem;
+    padding: 0 0.938rem;
+    position: relative;
+    top: 6%;
+  }
+  
+  .frm-wrapper {
+    display: block;
+    background-color: #fff;
+    border: 0.25rem solid #dfe3e8;
+    border-radius: 0.938rem;
+    box-shadow: 0 0.625rem 0.375rem -0.375rem #323232;
+    padding: 0.938rem;
+    margin: auto;
+    width: 21.875rem;
+  }
+  
+  /* Header */
+  .title {
+    color: #25b0d3;
+    font-family: "Paytone One", sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 0.1rem;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  /* Form */
+  .frm {
+    margin: 0.938rem 0;
+  }
+  
+  label {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  input {
+    outline: none;
+  }
+  
+  input[type="text"] {
+    border: 0.063rem solid #3e4155;
+    border-radius: 3.125rem;
+    padding: 0.625rem 0.938rem;
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+  input[type="email"] {
+    border: 0.063rem solid #3e4155;
+    border-radius: 3.125rem;
+    padding: 0.625rem 0.938rem;
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+  input[type="password"] {
+    border: 0.063rem solid #3e4155;
+    border-radius: 3.125rem;
+    padding: 0.625rem 0.938rem;
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+  
+  input[type="submit"] {
+    background-color: #6dcbe2;
+    color: #fff;
+    border: 0.063rem solid #6dcbe2;
+    border-radius: 3.125rem;
+    font-size: 1rem;
+    padding: 0.625rem 0.938rem;
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+  
+  
+  .btn:focus {
+    background-color: #25b0d3;
+  }
+  
+  .frm-btm-text {
+    font-size: 0.8rem;
+    margin: auto 0;
+  }
+  
+  p.frm-btm-text a {
+    font-weight: 600;
+    color: #007ace;
+  }
+  
+  p.frm-btm-text a:hover {
+    color: #084e8a;
+  }
+  
+  /* Footer */
+  .footer {
+    color: #fff;
+    font-size: 0.9rem;
+  }
+  
+  p.footer-txt a {
+    color: #ffd974;
+  }
+  
+  p.footer-txt a:hover {
+    color: #ffc426;
+  }
+  
+  /* Mobile View */
+  @media screen and (max-width: 36rem) {
+    .frm-wrapper {
+      width: 18.75rem;
+    }
+  }
+  
+  @media screen and (max-width: 22.5rem) {
+    .container {
+      top: 3%;
+    }
+  
+    .frm-wrapper {
+      width: 100%;
+    }
+  
+    .title {
+      margin: 0;
+    }
+  
+    .subtitle {
+      font-size: 0.8rem;
+    }
+  
+    label {
+      font-size: 0.8rem;
+    }
+  
+    p.frm-btm-text,
+    p.frm-btm-text a {
+      font-size: 0.6rem;
+    }
+  
+    p.footer-txt {
+      font-size: 0.8rem;
+      margin-top: 0.625rem;
+    }
+  }
+  
+  
+  

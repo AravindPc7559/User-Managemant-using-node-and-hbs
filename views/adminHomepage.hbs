@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/adminHomepage.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  {{!-- TAble --}}
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
+  {{!-- Table --}}
+  <title>Document</title>
+</head>
+<body>
+
+  {{!-- Navbar --}}
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="font-weight: bold;"><i class="fa-solid fa-earth-africa"></i>XSHOP ADMIN</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+      <form action="/admin/adminlogoutForm" method="get" class="d-flex input-group w-auto">
+        <button
+          class="btn btn-outline-primary"
+          type="submit"
+          data-mdb-ripple-color="dark"
+        >
+          Logout
+        </button>
+      </form>
+       <div class="createBtn ml-3">
+        <button><a href="/admin/createAdmin" style="color:   color: #25b0d3;;">Create <i style="color: skyblue;" class="fa-solid fa-user-plus"></i></a></button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+  {{!-- Navbar --}}
+
+
+
+{{!-- Crud Box --}}
+
+<div class="container mt-5 ">
+<div class="table">
+  <table id="tableData" class="display">
+    <thead>
+    <tr style="text-align: center;">
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Options</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each Datas}}
+  <tr>
+    <td>{{this._id}}</td>
+    <td>{{this.fname}}</td>
+    <td>{{this.email}}</td>
+    <td>
+      <div class="btns">
+
+        <a href="/admin/UpdateForm/{{this._id}}" class="btn btn-primary">Edit</a>
+        <a href="/admin/delete-product/{{this._id}}" class="btn btn-danger">Delete</a>
+      </div>
+    </td>
+  </tr>
+  {{/each}}
+  </tbody>
+</table>
+</div>
+
+</div>
+ 
+ <script>
+   
+  $(document).ready( function () {
+    $("#tableData").DataTable();
+});
+
+ </script>
+</body>
+
+
+</html>

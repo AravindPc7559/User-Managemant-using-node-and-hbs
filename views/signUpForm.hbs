@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/signup.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+  <!-- Form -->
+  <div class="frm-wrapper">
+    <div class="frm-header">
+      <h1 class="title">Sign Up</h1>
+      <p class="subtitle">Get started with your free account</p>
+    {{#if Error}}
+      <label style="color: red;" for="">Email Already exist</label>
+      {{/if}}
+    </div>
+    <form class="frm" action="/submit" method="post">
+      <div class="frm-group">
+        <label for="fname">Full Name  <label style="color: red;" for="" id="errorMsg"></label></label>
+        <input type="text" class="fname" name="fname" id="name" onkeyup="return nameValidation()" onkeydown="preventNumberInput(event)">
+      </div>
+      <div class="frm-group">
+        <label for="lname">email    <label style="color: red;" for="" id="emailerrormsg"></label></label>
+        <input type="email" class="lname"  onkeyup="return emailvalidate()" name="email" id="email">
+      </div>
+      <div class="frm-group">
+        <label for="password">Password</label>
+        <input type="password" class="password" name="password" id="password">
+      </div>
+      {{!-- <div class="frm-group">
+        <label for="confirm">Confirm Password</label>
+        <input type="password" class="password" name="confirm" id="password">
+      </div> --}}
+      <input type="submit" class="btn" id="btn" value="Sign Up">
+    </form>
+      <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-txt">
+     <span style="color: black;"> Already have an account? </span><a href="/"><span style="color: aqua;">Login Here</span></a></p>
+    </p>
+  </footer>
+  <!-- end Footer -->
+  </div>
+  <!-- end Form -->
+
+
+</div>
+
+
+
+   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+
+<script>
+
+
+ function preventNumberInput(e){
+      var keycode = (e.keycode ? e.keycode : e.which);
+      if(keycode > 47 && keycode < 58 || keycode > 95 && keycode <107){
+        e.preventDefault();
+      }
+    }
+
+
+    function nameValidation(){
+    var name = document.getElementById("name").value;
+    var pattern = /^[a-zA-Z\\s]/;
+
+    if(name == ""){
+        document.getElementById("errorMsg").innerHTML("Name is mandatory");
+        return false;
+    }
+    else if(name.match(pattern)){
+        document.getElementById("errorMsg").innerHTML="";
+        return true;
+    }
+    else{
+        document.getElementById("errorMsg").innerHTML = "Enter correct name";
+        return false;
+    }
+}
+
+
+function emailvalidate(){
+    var email = document.getElementById("email").value;
+    var emailPattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
+    if(email == ""){
+        document.getElementById("emailerrormsg").innerHTML = "Email is mandatory"
+        return false;
+    }else if(email.match(emailPattern)){
+        document.getElementById("emailerrormsg").innerHTML = "";
+        return true;
+    }else{
+        document.getElementById("emailerrormsg").innerHTML = "Enter correct Email"
+        return false;
+    }
+}
+
+</script>
+</body>
+</html>

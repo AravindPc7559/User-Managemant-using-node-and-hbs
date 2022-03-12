@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+  <!-- Form -->
+  <div class="frm-wrapper">
+    <div class="frm-header">
+      <h1 class="title">Admin Sign In</h1>
+      <p class="subtitle">Log In To Your Account..</p>
+{{#if Error}}
+      <label for="" style="color: red;
+                            border-bottom: 2px solid;
+                            margin-bottom: 20px;">Invalid Email or password</label>
+      {{/if}}
+    </div>
+    <form class="frm" action="/admin/adminloginForm" method="post">
+      <div class="frm-group">
+        <label for="fname">Username     <label style="color: red;" for="" id="errorMsg"></label></label>
+        <input
+                               type="text"
+                               name="uname"
+                               class="form-control"
+                               id="name"
+                               onkeyup="return nameValidation()"
+                               onkeydown="preventNumberInput(event)"
+                               placeholder="Username"
+                             />
+                              
+     
+      </div>
+      <div class="frm-group">
+        <label for="lname">Password</label>
+        <input type="password" name="password" required="required" placeholder="Password"></input>
+      </div>
+      <input type="submit" class="btn" id="btn" value="SignIn">
+    </form>
+  </div>
+  <!-- end Form -->
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<script>
+
+
+ function preventNumberInput(e){
+      var keycode = (e.keycode ? e.keycode : e.which);
+      if(keycode > 47 && keycode < 58 || keycode > 95 && keycode <107){
+        e.preventDefault();
+      }
+    }
+
+   function nameValidation(){
+    var name = document.getElementById("name").value;
+    var pattern = /^[a-zA-Z\\s]/;
+
+    if(name == ""){
+        document.getElementById("errorMsg").innerHTML("Name is mandatory");
+        return false;
+    }
+    else if(name.match(pattern)){
+        document.getElementById("errorMsg").innerHTML="";
+        return true;
+    }
+    else{
+        document.getElementById("errorMsg").innerHTML = "Enter Valid username";
+        return false;
+    }
+}
+
+</script>
+</body>
+</html>
+
